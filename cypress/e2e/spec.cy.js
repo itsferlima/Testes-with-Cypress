@@ -1,6 +1,8 @@
 describe('Testes de Login', () => {
   it('Login com sucesso', () => {
+    //Arrange
     cy.visit('https://front.serverest.dev/login')
+    //Act
     cy.get('[data-testid="email"]').type('')
     cy.get('[data-testid="senha"]').type('123Sublin')
     cy.get('[data-testid="entrar"]').click()
