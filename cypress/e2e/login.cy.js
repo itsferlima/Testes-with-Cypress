@@ -1,7 +1,10 @@
 describe('Login', () => {
-    it('Realizar login com sucesso', () => {
+    beforeEach(() =>{
         //Arrange
-        cy.visit('https://www.saucedemo.com/')
+        cy.visit('https://www.saucedemo.com/') // iniciar a pagina, ao invez de cada teste ter a URL
+    })
+
+    it('Realizar login com sucesso', () => {
         //Act
         cy.get('[data-test="username"]').type('standard_user')
         cy.get('[data-test="password"]').type('secret_sauce')
@@ -12,9 +15,7 @@ describe('Login', () => {
 
     })
 
-    it.only('Realizando login informando credenciais erradas', () => {
-        //Arrange
-        cy.visit('https://www.saucedemo.com/')
+    it('Realizando login informando credenciais erradas', () => {
         //Act
         cy.get('[data-test="username"]').type('new_profile')
         cy.get('[data-test="password"]').type('secret_password')
