@@ -6,6 +6,7 @@ describe('Login', () => {
         cy.get('[data-test="username"]').type('standard_user')
         cy.get('[data-test="password"]').type('secret_sauce')
         cy.get('[data-test="login-button"]').click()
+        cy.screenshot('login')
         //Assert
         cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
 
@@ -18,6 +19,7 @@ describe('Login', () => {
         cy.get('[data-test="username"]').type('new_profile')
         cy.get('[data-test="password"]').type('secret_password')
         cy.get('[data-test="login-button"]').click()
+        cy.screenshot('erro credenciais invalidas')
 
         //Assert
         cy.get('[data-test="error"]').should('contain.text', 'Username and password do not match any user in this service')
