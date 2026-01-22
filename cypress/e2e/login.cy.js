@@ -1,31 +1,26 @@
+import Login from '../pages/login'
+import Inventory from '../pages/inventory';
+
 describe('Login', () => {
     beforeEach(() =>{
         //Arrange
-        cy.visit('https://www.saucedemo.com/') // iniciar a pagina, ao invez de cada teste ter a URL
+        Login.visitarPagina();
     })
 
     it('Realizar login com sucesso', () => {
         //Act
-        cy.get('[data-test="username"]').type('standard_user')
-        cy.get('[data-test="password"]').type('secret_sauce')
-        cy.get('[data-test="login-button"]').click()
-        cy.screenshot('login')
+        Login.preencherCredenciaisValidas();
         //Assert
-        cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
-
+        Inventory.validarAcessoPagina(); //metodo 
+       
     })
 
     it('Realizando login informando credenciais erradas', () => {
         //Act
-        cy.get('[data-test="username"]').type('new_profile')
-        cy.get('[data-test="password"]').type('secret_password')
-        cy.get('[data-test="login-button"]').click()
-        cy.screenshot('erro credenciais invalidas')
-
+        Login.preencherCredenciaisInvalidas();
+     
         //Assert
-        cy.get('[data-test="error"]').should('contain.text', 'Username and password do not match any user in this service')
-
-        cy.url().should('eq','https://www.saucedemo.com/' )
+        Login.validarErroCredenciaisErradas();
     })
 })
 
