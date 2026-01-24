@@ -51,7 +51,7 @@ context('Utilities', () => {
       matchBase: true,
     })
 
-    expect(matching, 'matching wildcard').to.be.true
+    expect(matching, 'matching wildcart').to.be.true
 
     matching = Cypress.minimatch('/users/1/comments/2', '/users/*/comments', {
       matchBase: true,
