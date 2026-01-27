@@ -3,7 +3,7 @@ const baseConfig = required('./cypress.config')
 
 
 const e2e = {
-    baseUrl: 'https://qa.saucedemo.com',
+    baseUrl: 'https://qa.saucedemo.com/',
     env:{
         username: 'QA_sauce',
         password: 'secrete@'
