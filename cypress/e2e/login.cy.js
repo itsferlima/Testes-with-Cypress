@@ -7,7 +7,7 @@ describe('Login', () => {
         Login.visitarPagina();
     })
 
-    it('Realizar login com sucesso', () => {
+    it('Sucess login', () => {
         //Act
         Login.preencherCredenciaisValidas();
         //Assert
